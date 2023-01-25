@@ -42,7 +42,7 @@ public class MyInfoServlet extends HttpServlet {
 			// http://127.0.0.1:8889/member
 			request.setAttribute("title", "아이디로 조회 실패!");
 			request.setAttribute("msg", "해당하는 데이터가 존재하지 않습니다.");
-			request.getRequestDispatcher("/WEB-INF/views/member/error.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/views/common/error.jsp").forward(request, response);
 		}
 	}
 
