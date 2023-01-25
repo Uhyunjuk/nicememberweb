@@ -62,5 +62,39 @@ public class MemberService {
 		//결과
 		return result;
 	}
+
+	/**
+	 * 회원 수정 Service
+	 * @param member
+	 * @return result
+	 */
+	public int updateMember(Member member) {
+		int result = 0;
+		Connection conn = JDBCTemplate.getConnection();
+		result = mDao.updateMember(conn, member);
+		if(result > 0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		return result;
+	}
+
+	/**
+	 * 회원 탈퇴 Service
+	 * @param memberId
+	 * @return result
+	 */
+	public int deleteMember(String memberId) {
+		int result = 0;
+		Connection conn = JDBCTemplate.getConnection();
+		result = mDao.deleteMember(conn, memberId);
+		if(result >0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		return result;
+	}
 	
 }

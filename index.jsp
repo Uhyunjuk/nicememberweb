@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,13 +21,12 @@
 					<input type="password" name="member-pw" placeholder="PW"> <br>
 
 					<div id="login-area">
-						<input type="submit" value="로그인"> <input type="reset"
-							value="취소">
+						<input type="submit" value="로그인">
+						<input type="reset" value="취소">
 					</div>
 				</form>
 			</fieldset>
 			<span><a href="/member/enrollView.kh">회원가입</a></span>
-		</div>
 		</div>
 	</c:if>
 	<c:if test="${sessionScope.memberId ne null }">

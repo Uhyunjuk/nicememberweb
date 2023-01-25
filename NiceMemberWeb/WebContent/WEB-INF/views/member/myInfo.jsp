@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,13 +11,13 @@
 <body>
 	<h1>마이페이지</h1>
 	<div>
-		<form action="">
+		<form action="/member/update.kh" method="post">
 			<fieldset>
 				<legend>회원 상세 정보</legend>
 				<ul id="member-register">
 				<li>
 					<label for="member-id">아이디</label>
-					<input type="text" id="member-id" name="member-id" value="${member.memberId }">
+					<input type="text" id="member-id" name="member-id" value="${sessionScope.member.memberId }" readonly>
 				</li>
 				<li>
 					<label for="member-pw">비밀번호</label>
@@ -24,16 +25,16 @@
 				</li>
 				<li>
 					<label for="member-name">이름</label>
-					<input type="text" id="member-name" name="member-name" value="${member.memberName }">
+					<input type="text" id="member-name" name="member-name" value="${member.memberName }" readonly>
 				</li>
 				<li>
 					<label for="age">나이</label>
-					<input type="text" id="age" name="member-age" value="${member.memberAge }">
+					<input type="text" id="age" name="member-age" value="${member.memberAge }" readonly>
 				</li>
 				<li>
 					<label for="gender">성별</label>
-					남 <input type="radio" id="gender" name="member-gender" value="M">
-					여<input type="radio" name="member-gender" value="F">
+					남 <input type="radio" id="gender" name="member-gender" value="M" <c:if test="${member.memberGender eq 'M' }">checked</c:if>>
+					여 <input type="radio" id="gender" name="member-gender" value="F" <c:if test="${member.memberGender eq 'F' }">checked</c:if>>
 				</li>
 				<li>
 					<label for="email">이메일</label>
@@ -53,7 +54,7 @@
 				</li>
 				<li>
 					<label for="m-date">가입날짜</label>
-					<input type="text" id="m-date" value="${member.memberDate }">
+					<input type="text" id="m-date" value="${member.memberDate }" readonly>
 				</li>
 			</ul>
 			</fieldset>
