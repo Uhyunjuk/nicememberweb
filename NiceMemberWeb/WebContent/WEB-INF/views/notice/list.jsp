@@ -34,7 +34,7 @@
 			<c:forEach items="${nList }" var="notice">
 				<tr>
 					<td style="text-align:center;">${notice.noticeNo }</td>
-					<td>${notice.noticeSubject }</td>
+					<td><a href="/notice/detail?notice-no=${notice.noticeNo}">${notice.noticeSubject }</td>
 					<td>${notice.noticeWriter }</td>
 					<td>${notice.noticeDate }</td>
 					<td style="text-align:center;">${notice.noticeCount }</td>
